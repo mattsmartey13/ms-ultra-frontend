@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Ensure this repository is inside the `ms-ultra-app` folder, alongside the `ms-ultra-backend`
+- Follow the setup for ms-ultra-backend repository
+- After following the instructions, you should have the backend application running
+- Build this application: `docker-compose build`
+- When successful, run this application: `docker-compose up -d`
+- Ensure this is on the same network as the backend app: `docker network inspect ms_ultra_network`
+- Should see something like:
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+ {
+        "Name": "ms_ultra_network",
+        "Id": "93562d98dd89985b94ec58942ad9480e10c3337ae0a7ba4b4fe302af24adebdd",
+        "Created": "2024-12-02T21:56:51.646928152Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "59bb242649400f3b2516a92c8a5307c0755bee09ab3c0fe6efde0b5942402b28": {
+                "Name": "ms_ultra_mongo_db",
+                "EndpointID": "b8e2819df5820accbf11d52ef5841a9da027b29b95bc21d14207495fba3eeae7",
+                "MacAddress": "02:42:ac:13:00:03",
+                "IPv4Address": "172.19.0.3/16",
+                "IPv6Address": ""
+            },
+            "731a77c801d8651e6bbe97b98227965f34f7244b3f89389e62c2aa433330a823": {
+                "Name": "ms_ultra_postgres_db",
+                "EndpointID": "330e4debf4b538caa23be94d12a7ea829bf52d3d37279b1b0226b48b52d9b6ef",
+                "MacAddress": "02:42:ac:13:00:02",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            },
+            "8ff424b0c69ccfb5daebdc39223b608d247983695cb978b0a8c7f50e2a3d6090": {
+                "Name": "ms_ultra_backend_dev",
+                "EndpointID": "a97748a565d1c4e1f0ae498607c636b5c2f089f385c432dda1f12a5b56901a27",
+                "MacAddress": "02:42:ac:13:00:04",
+                "IPv4Address": "172.19.0.4/16",
+                "IPv6Address": ""
+            },
+            "f3a178a77bb8591d304e550ed7a0329bc40aa6da5e1b68f82439e6cec0f5faf6": {
+                "Name": "ms_ultra_frontend_dev",
+                "EndpointID": "41271d6b8947ad16ef3c8aa14190a8116caad48beb39f2d28c5f4d3757b2d3ea",
+                "MacAddress": "02:42:ac:13:00:05",
+                "IPv4Address": "172.19.0.5/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+```
