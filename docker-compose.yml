@@ -7,11 +7,12 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/app:cached             # map host folder into container
+      - /app/node_modules         # keep container's node_modules separate
     environment:
       - CHOKIDAR_USEPOLLING=true
-      - REACT_APP_BACKEND_URL=http://ms_ultra_backend_dev:8000 # Connect to the backend
+      - REACT_APP_BACKEND_URL=http://localhost:8000
+    command: npm start
     networks:
       - ms_ultra_network
 
