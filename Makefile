@@ -1,8 +1,14 @@
-build:
-	docker-compose build
+.PHONY: build
+COMPOSE_FILE=docker-compose.yml
+
+up-build:
+	docker-compose up --build
 
 up:
-	docker-compose up -d
+	docker-compose up
+
+build:
+	docker-compose -f $(COMPOSE_FILE) build
 
 down:
 	docker-compose down

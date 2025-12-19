@@ -1,0 +1,10 @@
+/* Topbar.css */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 1px solid #222;
+  background: var(--card);
+  color: var(--text);
+}

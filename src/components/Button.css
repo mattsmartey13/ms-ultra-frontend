@@ -1,0 +1,19 @@
+.btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--purple);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--purple-dark);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,20 +1,18 @@
-# Use a Node.js base image
 FROM node:18
 
-# Set working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to install dependencies
+# Copy package.json first for caching node_modules
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of the app (needed for initial build)
 COPY . .
 
-# Expose the development server port
+# Expose React dev server port
 EXPOSE 3000
 
-# Run the development server
+# Default command
 CMD ["npm", "start"]
